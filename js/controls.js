@@ -19,5 +19,13 @@ $(document).ready(function(){
 
 	function updateTemperature(){
 		$('#temperature').text(thermostat.temperature);
+		if(thermostat.usage() === 'Low-usage!') {
+			$('#temperature').css('color', 'lightgreen')
+		} else if(thermostat.usage() === 'Medium-usage!') {
+			$('#temperature').css('color', 'powderblue')
+		} else {
+			$('#temperature').css('color','indianred')
+		}
 	}
+
 })
