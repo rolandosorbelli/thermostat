@@ -2,15 +2,22 @@ $(document).ready(function(){
 	var thermostat = new Thermostat();
 	$('#temperature').text(thermostat.temperature);
 
-	$('#temperature-up').on('click', function() { // event listener
-		thermostat.up(); // update model
-		$('#temperature').text(thermostat.temperature); // update view
+	$('#temperature-up').on('click', function() {
+		thermostat.up();
+		updateTemperature();
 	})
 
 	$('#temperature-down').on('click', function() {
 		thermostat.down();
-		$('#temperature').text(thermostat.temperature);
+		updateTemperature();
 	})
 
+	$('#temperature-reset').on('click', function(){
+		thermostat.reset();
+		updateTemperature();
+	})
 
+	function updateTemperature(){
+		$('#temperature').text(thermostat.temperature);
+	}
 })
